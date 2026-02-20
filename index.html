@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoralKids - Learn Good Values Through Fun</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Clouds Background -->
+    <div class="clouds-container">
+        <div class="cloud">☁️</div>
+        <div class="cloud cloud-2">☁️</div>
+        <div class="cloud cloud-3">☁️</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="showSection('home')">
+                <div class="logo-icon">🦁</div>
+                <span class="logo-text">MoralKids</span>
+            </div>
+            
+            <div class="nav-links">
+                <button onclick="showSection('games')" class="nav-btn nav-games">
+                    <i class="fas fa-gamepad"></i> Games
+                </button>
+                <button onclick="showSection('videos')" class="nav-btn nav-videos">
+                    <i class="fas fa-play-circle"></i> Videos
+                </button>
+                <button onclick="showSection('stories')" class="nav-btn nav-stories">
+                    <i class="fas fa-book-open"></i> Stories
+                </button>
+                <button onclick="showSection('rewards')" class="nav-btn nav-rewards">
+                    <i class="fas fa-trophy"></i> My Stars
+                </button>
+            </div>
+
+            <div class="nav-controls">
+                <select id="countrySelect" onchange="changeCountry()" class="country-select">
+                    <option value="us">🇺🇸 United States</option>
+                    <option value="uk">🇬🇧 United Kingdom</option>
+                    <option value="in">🇮🇳 India</option>
+                    <option value="jp">🇯🇵 Japan</option>
+                    <option value="br">🇧🇷 Brazil</option>
+                    <option value="au">🇦🇺 Australia</option>
+                    <option value="ca">🇨🇦 Canada</option>
+                    <option value="ng">🇳🇬 Nigeria</option>
+                </select>
+                <div class="star-counter">
+                    <span class="star-icon">⭐</span>
+                    <span id="starCount">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-bg-effects">
+                    <div class="blob blob-1"></div>
+                    <div class="blob blob-2"></div>
+                </div>
+                
+                <h1 class="hero-title">
+                    Learn to be <span class="gradient-text">Good!</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Play games, watch videos, and earn stars while learning honesty, kindness, and civic sense!
+                </p>
+                
+                <div class="hero-buttons">
+                    <button onclick="showSection('games')" class="btn btn-primary btn-bounce">
+                        Start Playing! 🎮
+                    </button>
+                    <button onclick="showSection('videos')" class="btn btn-secondary">
+                        Watch Cartoons 📺
+                    </button>
+                </div>
+            </div>
+
+            <!-- Age Selection -->
+            <div class="age-selection">
+                <h2 class="section-title">Choose Your Age Group</h2>
+                <div class="age-grid">
+                    <button onclick="setAgeGroup('2-4')" class="age-card age-blue">
+                        <div class="age-icon">🧸</div>
+                        <h3 class="age-title">Ages 2-4</h3>
+                        <p class="age-desc">Simple games & songs</p>
+                        <div class="age-bg-circle"></div>
+                    </button>
+                    
+                    <button onclick="setAgeGroup('5-6')" class="age-card age-green">
+                        <div class="age-icon">🚀</div>
+                        <h3 class="age-title">Ages 5-6</h3>
+                        <p class="age-desc">Stories & quizzes</p>
+                        <div class="age-bg-circle"></div>
+                    </button>
+                    
+                    <button onclick="setAgeGroup('7-8')" class="age-card age-orange">
+                        <div class="age-icon">🎓</div>
+                        <h3 class="age-title">Ages 7-8</h3>
+                        <p class="age-desc">Challenges & civic games</p>
+                        <div class="age-bg-circle"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Content -->
+            <div class="featured-grid">
+                <div class="featured-card" onclick="showSection('games')">
+                    <div class="featured-img featured-green">🎯</div>
+                    <div class="featured-content">
+                        <h3>Honesty Game</h3>
+                        <p>Find the truth!</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card" onclick="showSection('videos')">
+                    <div class="featured-img featured-red">🎬</div>
+                    <div class="featured-content">
+                        <h3>Moral Cartoons</h3>
+                        <p>Watch & learn</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card" onclick="showSection('stories')">
+                    <div class="featured-img featured-purple">📚</div>
+                    <div class="featured-content">
+                        <h3>Bedtime Stories</h3>
+                        <p>Tales of kindness</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card" onclick="showSection('games')">
+                    <div class="featured-img featured-blue">🌍</div>
+                    <div class="featured-content">
+                        <h3>Civic Sense</h3>
+                        <p>Be a good citizen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAMES SECTION -->
+        <section id="games" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🎮 Fun Learning Games</h2>
+                <p class="section-subtitle">Play and learn important values!</p>
+            </div>
+
+            <div class="games-grid">
+                <!-- Honesty Game -->
+                <div class="game-card" onclick="openGame('honesty')">
+                    <div class="game-img game-honesty">
+                        <span class="game-emoji">🤝</span>
+                        <div class="game-overlay">
+                            <span class="play-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Truth Finder</h3>
+                        <p>Learn about honesty</p>
+                        <div class="game-meta">
+                            <span class="difficulty">⭐ Easy</span>
+                            <span class="reward">+5 Stars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sharing Game -->
+                <div class="game-card" onclick="openGame('sharing')">
+                    <div class="game-img game-sharing">
+                        <span class="game-emoji">🎁</span>
+                        <div class="game-overlay">
+                            <span class="play-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Sharing is Caring</h3>
+                        <p>Share with friends</p>
+                        <div class="game-meta">
+                            <span class="difficulty">⭐⭐ Medium</span>
+                            <span class="reward">+10 Stars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Civic Duty Game -->
+                <div class="game-card" onclick="openGame('civic')">
+                    <div class="game-img game-civic">
+                        <span class="game-emoji">🚦</span>
+                        <div class="game-overlay">
+                            <span class="play-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Traffic Hero</h3>
+                        <p>Road safety & rules</p>
+                        <div class="game-meta">
+                            <span class="difficulty">⭐⭐⭐ Hard</span>
+                            <span class="reward">+15 Stars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recycling Game -->
+                <div class="game-card" onclick="openGame('recycle')">
+                    <div class="game-img game-recycle">
+                        <span class="game-emoji">♻️</span>
+                        <div class="game-overlay">
+                            <span class="play-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Eco Warrior</h3>
+                        <p>Save the planet</p>
+                        <div class="game-meta">
+                            <span class="difficulty">⭐⭐ Medium</span>
+                            <span class="reward">+10 Stars</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEOS SECTION -->
+        <section id="videos" class="section">
+            <div class="section-header">
+                <h2 class="section-title">📺 Moral Cartoons</h2>
+                <p class="section-subtitle">Watch stories about being good!</p>
+            </div>
+
+            <div class="videos-grid">
+                <div class="video-card" onclick="playVideo('honesty')">
+                    <div class="video-thumbnail">
+                        <div class="video-placeholder video-honesty">
+                            <span class="video-emoji">🦁</span>
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <span class="video-duration">5:30</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>The Honest Lion</h3>
+                        <p>Why telling truth is important</p>
+                        <div class="video-tags">
+                            <span class="tag tag-honesty">Honesty</span>
+                            <span class="tag tag-age">Ages 3-6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" onclick="playVideo('sharing')">
+                    <div class="video-thumbnail">
+                        <div class="video-placeholder video-sharing">
+                            <span class="video-emoji">🐻</span>
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <span class="video-duration">4:45</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Bear Shares His Honey</h3>
+                        <p>Learning to share with others</p>
+                        <div class="video-tags">
+                            <span class="tag tag-sharing">Sharing</span>
+                            <span class="tag tag-age">Ages 2-5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" onclick="playVideo('civic')">
+                    <div class="video-thumbnail">
+                        <div class="video-placeholder video-civic">
+                            <span class="video-emoji">🚗</span>
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <span class="video-duration">6:15</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Traffic Safety Squad</h3>
+                        <p>Being safe on the road</p>
+                        <div class="video-tags">
+                            <span class="tag tag-civic">Civic Sense</span>
+                            <span class="tag tag-age">Ages 5-8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" onclick="playVideo('kindness')">
+                    <div class="video-thumbnail">
+                        <div class="video-placeholder video-kindness">
+                            <span class="video-emoji">🐘</span>
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <span class="video-duration">5:00</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Elephant Helps a Friend</h3>
+                        <p>Kindness makes everyone happy</p>
+                        <div class="video-tags">
+                            <span class="tag tag-kindness">Kindness</span>
+                            <span class="tag tag-age">Ages 3-7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORIES SECTION -->
+        <section id="stories" class="section">
+            <div class="section-header">
+                <h2 class="section-title">📚 Interactive Stories</h2>
+                <p class="section-subtitle">Read along with moral lessons!</p>
+            </div>
+
+            <div class="stories-container">
+                <div class="story-card" onclick="readStory('boywhocriedwolf')">
+                    <div class="story-cover story-wolf">
+                        <span class="story-icon">🐺</span>
+                    </div>
+                    <div class="story-content">
+                        <h3>The Boy Who Cried Wolf</h3>
+                        <p class="story-desc">A tale about why honesty matters and why we shouldn't tell lies.</p>
+                        <div class="story-footer">
+                            <span class="story-moral">Moral: Always tell the truth</span>
+                            <button class="btn-read">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" onclick="readStory('goldenax')">
+                    <div class="story-cover story-axe">
+                        <span class="story-icon">🪓</span>
+                    </div>
+                    <div class="story-content">
+                        <h3>The Golden Axe</h3>
+                        <p class="story-desc">Honesty is rewarded when a woodcutter loses his axe in a river.</p>
+                        <div class="story-footer">
+                            <span class="story-moral">Moral: Honesty is the best policy</span>
+                            <button class="btn-read">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" onclick="readStory('antgrasshopper')">
+                    <div class="story-cover story-ant">
+                        <span class="story-icon">🦗</span>
+                    </div>
+                    <div class="story-content">
+                        <h3>The Ant and Grasshopper</h3>
+                        <p class="story-desc">Hard work and planning ahead saves the day.</p>
+                        <div class="story-footer">
+                            <span class="story-moral">Moral: Work hard, plan ahead</span>
+                            <button class="btn-read">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REWARDS SECTION -->
+        <section id="rewards" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🏆 Your Achievement Stars</h2>
+                <p class="section-subtitle">Keep learning to earn more!</p>
+            </div>
+
+            <div class="rewards-container">
+                <div class="star-display">
+                    <div class="star-circle">
+                        <span class="star-big">⭐</span>
+                        <span id="totalStars" class="star-count">0</span>
+                    </div>
+                    <p class="star-text">Total Stars Earned</p>
+                </div>
+
+                <div class="badges-grid">
+                    <div class="badge" id="badge-honesty">
+                        <div class="badge-icon">🤝</div>
+                        <h4>Honesty Hero</h4>
+                        <p>Complete honesty games</p>
+                        <div class="badge-progress">
+                            <div class="progress-bar" id="progress-honesty"></div>
+                        </div>
+                    </div>
+
+                    <div class="badge" id="badge-kindness">
+                        <div class="badge-icon">💝</div>
+                        <h4>Kindness King</h4>
+                        <p>Watch kindness videos</p>
+                        <div class="badge-progress">
+                            <div class="progress-bar" id="progress-kindness"></div>
+                        </div>
+                    </div>
+
+                    <div class="badge" id="badge-civic">
+                        <div class="badge-icon">🌍</div>
+                        <h4>Civic Star</h4>
+                        <p>Learn civic duties</p>
+                        <div class="badge-progress">
+                            <div class="progress-bar" id="progress-civic"></div>
+                        </div>
+                    </div>
+
+                    <div class="badge" id="badge-reader">
+                        <div class="badge-icon">📖</div>
+                        <h4>Story Master</h4>
+                        <p>Read 5 stories</p>
+                        <div class="badge-progress">
+                            <div class="progress-bar" id="progress-reader"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content game-modal-content">
+            <span class="close-btn" onclick="closeModal('gameModal')">&times;</span>
+            <div id="gameContainer" class="game-container">
+                <!-- Game content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content video-modal-content">
+            <span class="close-btn" onclick="closeModal('videoModal')">&times;</span>
+            <div id="videoPlayer" class="video-player">
+                <!-- Video content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Modal -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content story-modal-content">
+            <span class="close-btn" onclick="closeModal('storyModal')">&times;</span>
+            <div id="storyReader" class="story-reader">
+                <!-- Story content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Overlay -->
+    <div id="celebration" class="celebration hidden">
+        <div class="celebration-content">
+            <h2>🎉 Great Job! 🎉</h2>
+            <p>You earned <span id="earnedStars">5</span> stars!</p>
+            <button onclick="closeCelebration()" class="btn btn-primary">Continue</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoralKids - Learn Good Values Through Fun</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Clouds Background -->
+    <div class="clouds-container">
+        <div class="cloud">☁️</div>
+        <div class="cloud cloud-2">☁️</div>
+        <div class="cloud cloud-3">☁️</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="showSection('home')">
+                <div class="logo-icon">🦁</div>
+                <span class="logo-text">MoralKids</span>
+            </div>
+            
+            <div class="nav-links">
+                <button onclick="showSection('games')" class="nav-btn nav-games">
+                    <i class="fas fa-gamepad"></i> Games
+                </button>
+                <button onclick="showSection('videos')" class="nav-btn nav-videos">
+                    <i class="fas fa-play-circle"></i> Videos
+                </button>
+                <button onclick="showSection('stories')" class="nav-btn nav-stories">
+                    <i class="fas fa-book-open"></i> Stories
+                </button>
+                <button onclick="showSection('rewards')" class="nav-btn nav-rewards">
+                    <i class="fas fa-trophy"></i> My Stars
+                </button>
+            </div>
+
+            <div class="nav-controls">
+                <select id="countrySelect" onchange="changeCountry()" class="country-select">
+                    <option value="us">🇺🇸 United States</option>
+                    <option value="uk">🇬🇧 United Kingdom</option>
+                    <option value="in">🇮🇳 India</option>
+                    <option value="jp">🇯🇵 Japan</option>
+                    <option value="br">🇧🇷 Brazil</option>
+                    <option value="au">🇦🇺 Australia</option>
+                    <option value="ca">🇨🇦 Canada</option>
+                    <option value="ng">🇳🇬 Nigeria</option>
+                </select>
+                <div class="star-counter">
+                    <span class="star-icon">⭐</span>
+                    <span id="starCount">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-bg-effects">
+                    <div class="blob blob-1"></div>
+                    <div class="blob blob-2"></div>
+                </div>
+                
+                <h1 class="hero-title">
+                    Learn to be <span class="gradient-text">Good!</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Play games, watch videos, and earn stars while learning honesty, kindness, and civic sense!
+                </p>
+                
+                <div class="hero-buttons">
+                    <button onclick="showSection('games')" class="btn btn-primary btn-bounce">
+                        Start Playing! 🎮
+                    </button>
+                    <button onclick="showSection('videos')" class="btn btn-secondary">
+                        Watch Cartoons 📺
+                    </button>
+                </div>
+            </div>
+
+            <!-- Age Selection -->
+            <div class="age-selection">
+                <h2 class="section-title">Choose Your Age Group</h2>
+                <div class="age-grid">
+                    <button onclick="setAgeGroup('2-4')" class="age-card age-blue">
+                        <div class="age-icon">🧸</div>
+                        <h3 class="age-title">Ages 2-4</h3>
+                        <p class="age-desc">Simple games & songs</p>
+                        <div class="age-bg-circle"></div>
+                    </button>
+                    
+                    <button onclick="setAgeGroup('5-6')" class="age-card age-green">
+                        <div class="age-icon">🚀</div>
+                        <h3 class="age-title">Ages 5-6</h3>
+                        <p class="age-desc">Stories & quizzes</p>
+                        <div class="age-bg-circle"></div>
+                    </button>
+                    
+                    <button onclick="setAgeGroup('7-8')" class="age-card age-orange">
+                        <div class="age-icon">🎓</div>
+                        <h3 class="age-title">Ages 7-8</h3>
+                        <p class="age-desc">Challenges & civic games</p>
+                        <div class="age-bg-circle"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Content -->
+            <div class="featured-grid">
+                <div class="featured-card" onclick="showSection('games')">
+                    <div class="featured-img featured-green">🎯</div>
+                    <div class="featured-content">
+                        <h3>Honesty Game</h3>
+                        <p>Find the truth!</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card" onclick="showSection('videos')">
+                    <div class="featured-img featured-red">🎬</div>
+                    <div class="featured-content">
+                        <h3>Moral Cartoons</h3>
+                        <p>Watch & learn</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card" onclick="showSection('stories')">
+                    <div class="featured-img featured-purple">📚</div>
+                    <div class="featured-content">
+                        <h3>Bedtime Stories</h3>
+                        <p>Tales of kindness</p>
+                    </div>
+                </div>
+                
+                <div class="featured-card" onclick="showSection('games')">
+                    <div class="featured-img featured-blue">🌍</div>
+                    <div class="featured-content">
+                        <h3>Civic Sense</h3>
+                        <p>Be a good citizen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GAMES SECTION -->
+        <section id="games" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🎮 Fun Learning Games</h2>
+                <p class="section-subtitle">Play and learn important values!</p>
+            </div>
+
+            <div class="games-grid">
+                <!-- Honesty Game -->
+                <div class="game-card" onclick="openGame('honesty')">
+                    <div class="game-img game-honesty">
+                        <span class="game-emoji">🤝</span>
+                        <div class="game-overlay">
+                            <span class="play-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Truth Finder</h3>
+                        <p>Learn about honesty</p>
+                        <div class="game-meta">
+                            <span class="difficulty">⭐ Easy</span>
+                            <span class="reward">+5 Stars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sharing Game -->
+                <div class="game-card" onclick="openGame('sharing')">
+                    <div class="game-img game-sharing">
+                        <span class="game-emoji">🎁</span>
+                        <div class="game-overlay">
+                            <span class="play-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Sharing is Caring</h3>
+                        <p>Share with friends</p>
+                        <div class="game-meta">
+                            <span class="difficulty">⭐⭐ Medium</span>
+                            <span class="reward">+10 Stars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Civic Duty Game -->
+                <div class="game-card" onclick="openGame('civic')">
+                    <div class="game-img game-civic">
+                        <span class="game-emoji">🚦</span>
+                        <div class="game-overlay">
+                            <span class="play-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Traffic Hero</h3>
+                        <p>Road safety & rules</p>
+                        <div class="game-meta">
+                            <span class="difficulty">⭐⭐⭐ Hard</span>
+                            <span class="reward">+15 Stars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recycling Game -->
+                <div class="game-card" onclick="openGame('recycle')">
+                    <div class="game-img game-recycle">
+                        <span class="game-emoji">♻️</span>
+                        <div class="game-overlay">
+                            <span class="play-icon">▶️</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3>Eco Warrior</h3>
+                        <p>Save the planet</p>
+                        <div class="game-meta">
+                            <span class="difficulty">⭐⭐ Medium</span>
+                            <span class="reward">+10 Stars</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIDEOS SECTION -->
+        <section id="videos" class="section">
+            <div class="section-header">
+                <h2 class="section-title">📺 Moral Cartoons</h2>
+                <p class="section-subtitle">Watch stories about being good!</p>
+            </div>
+
+            <div class="videos-grid">
+                <div class="video-card" onclick="playVideo('honesty')">
+                    <div class="video-thumbnail">
+                        <div class="video-placeholder video-honesty">
+                            <span class="video-emoji">🦁</span>
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <span class="video-duration">5:30</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>The Honest Lion</h3>
+                        <p>Why telling truth is important</p>
+                        <div class="video-tags">
+                            <span class="tag tag-honesty">Honesty</span>
+                            <span class="tag tag-age">Ages 3-6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" onclick="playVideo('sharing')">
+                    <div class="video-thumbnail">
+                        <div class="video-placeholder video-sharing">
+                            <span class="video-emoji">🐻</span>
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <span class="video-duration">4:45</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Bear Shares His Honey</h3>
+                        <p>Learning to share with others</p>
+                        <div class="video-tags">
+                            <span class="tag tag-sharing">Sharing</span>
+                            <span class="tag tag-age">Ages 2-5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" onclick="playVideo('civic')">
+                    <div class="video-thumbnail">
+                        <div class="video-placeholder video-civic">
+                            <span class="video-emoji">🚗</span>
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <span class="video-duration">6:15</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Traffic Safety Squad</h3>
+                        <p>Being safe on the road</p>
+                        <div class="video-tags">
+                            <span class="tag tag-civic">Civic Sense</span>
+                            <span class="tag tag-age">Ages 5-8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-card" onclick="playVideo('kindness')">
+                    <div class="video-thumbnail">
+                        <div class="video-placeholder video-kindness">
+                            <span class="video-emoji">🐘</span>
+                            <div class="play-button">▶️</div>
+                        </div>
+                        <span class="video-duration">5:00</span>
+                    </div>
+                    <div class="video-info">
+                        <h3>Elephant Helps a Friend</h3>
+                        <p>Kindness makes everyone happy</p>
+                        <div class="video-tags">
+                            <span class="tag tag-kindness">Kindness</span>
+                            <span class="tag tag-age">Ages 3-7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- STORIES SECTION -->
+        <section id="stories" class="section">
+            <div class="section-header">
+                <h2 class="section-title">📚 Interactive Stories</h2>
+                <p class="section-subtitle">Read along with moral lessons!</p>
+            </div>
+
+            <div class="stories-container">
+                <div class="story-card" onclick="readStory('boywhocriedwolf')">
+                    <div class="story-cover story-wolf">
+                        <span class="story-icon">🐺</span>
+                    </div>
+                    <div class="story-content">
+                        <h3>The Boy Who Cried Wolf</h3>
+                        <p class="story-desc">A tale about why honesty matters and why we shouldn't tell lies.</p>
+                        <div class="story-footer">
+                            <span class="story-moral">Moral: Always tell the truth</span>
+                            <button class="btn-read">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" onclick="readStory('goldenax')">
+                    <div class="story-cover story-axe">
+                        <span class="story-icon">🪓</span>
+                    </div>
+                    <div class="story-content">
+                        <h3>The Golden Axe</h3>
+                        <p class="story-desc">Honesty is rewarded when a woodcutter loses his axe in a river.</p>
+                        <div class="story-footer">
+                            <span class="story-moral">Moral: Honesty is the best policy</span>
+                            <button class="btn-read">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card" onclick="readStory('antgrasshopper')">
+                    <div class="story-cover story-ant">
+                        <span class="story-icon">🦗</span>
+                    </div>
+                    <div class="story-content">
+                        <h3>The Ant and Grasshopper</h3>
+                        <p class="story-desc">Hard work and planning ahead saves the day.</p>
+                        <div class="story-footer">
+                            <span class="story-moral">Moral: Work hard, plan ahead</span>
+                            <button class="btn-read">Read Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REWARDS SECTION -->
+        <section id="rewards" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🏆 Your Achievement Stars</h2>
+                <p class="section-subtitle">Keep learning to earn more!</p>
+            </div>
+
+            <div class="rewards-container">
+                <div class="star-display">
+                    <div class="star-circle">
+                        <span class="star-big">⭐</span>
+                        <span id="totalStars" class="star-count">0</span>
+                    </div>
+                    <p class="star-text">Total Stars Earned</p>
+                </div>
+
+                <div class="badges-grid">
+                    <div class="badge" id="badge-honesty">
+                        <div class="badge-icon">🤝</div>
+                        <h4>Honesty Hero</h4>
+                        <p>Complete honesty games</p>
+                        <div class="badge-progress">
+                            <div class="progress-bar" id="progress-honesty"></div>
+                        </div>
+                    </div>
+
+                    <div class="badge" id="badge-kindness">
+                        <div class="badge-icon">💝</div>
+                        <h4>Kindness King</h4>
+                        <p>Watch kindness videos</p>
+                        <div class="badge-progress">
+                            <div class="progress-bar" id="progress-kindness"></div>
+                        </div>
+                    </div>
+
+                    <div class="badge" id="badge-civic">
+                        <div class="badge-icon">🌍</div>
+                        <h4>Civic Star</h4>
+                        <p>Learn civic duties</p>
+                        <div class="badge-progress">
+                            <div class="progress-bar" id="progress-civic"></div>
+                        </div>
+                    </div>
+
+                    <div class="badge" id="badge-reader">
+                        <div class="badge-icon">📖</div>
+                        <h4>Story Master</h4>
+                        <p>Read 5 stories</p>
+                        <div class="badge-progress">
+                            <div class="progress-bar" id="progress-reader"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Game Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content game-modal-content">
+            <span class="close-btn" onclick="closeModal('gameModal')">&times;</span>
+            <div id="gameContainer" class="game-container">
+                <!-- Game content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content video-modal-content">
+            <span class="close-btn" onclick="closeModal('videoModal')">&times;</span>
+            <div id="videoPlayer" class="video-player">
+                <!-- Video content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Story Modal -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content story-modal-content">
+            <span class="close-btn" onclick="closeModal('storyModal')">&times;</span>
+            <div id="storyReader" class="story-reader">
+                <!-- Story content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Overlay -->
+    <div id="celebration" class="celebration hidden">
+        <div class="celebration-content">
+            <h2>🎉 Great Job! 🎉</h2>
+            <p>You earned <span id="earnedStars">5</span> stars!</p>
+            <button onclick="closeCelebration()" class="btn btn-primary">Continue</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
